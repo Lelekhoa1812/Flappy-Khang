@@ -76,9 +76,6 @@ function update() {
     if (gameOver) {
         return;
     }
-    if (isPaused){
-        return;
-    }
     context.clearRect(0, 0, board.width, board.height);
 
     //bird
@@ -119,10 +116,6 @@ function update() {
 
     if (gameOver) {
         context.fillText("GAME OVER", 5, 90);
-    }
-    else if (isPaused)
-    {
-        context.fillText("PAUSING...", 5, 90);
     }
 }
 
@@ -178,4 +171,14 @@ function detectCollision(a, b) {
            a.x + a.width > b.x &&   //a's top right corner passes b's top left corner
            a.y < b.y + b.height &&  //a's top left corner doesn't reach b's bottom left corner
            a.y + a.height > b.y;    //a's bottom left corner passes b's top left corner
+}
+
+// Function to start audio playback
+function startAudio() {
+    const audio = document.getElementById("bgAudio");
+    audio.play().catch(function(error) {
+        // Handle the error gracefully
+        console.error('Failed to play audio:', error.message);
+        alert('Please interact with the page to enable sound.');
+    });
 }
