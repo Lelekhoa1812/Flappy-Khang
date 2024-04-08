@@ -22,17 +22,17 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        .pause-button:hover {
+        .startAudio-button:hover {
             background-color: #e77171;
         }
     </style>
     <link rel="stylesheet" href="flappybird.css">
     <script src="flappybird.js"></script>
-    <button class="pause-button" onclick="pause()">Pause</button>
+    <button class="startAudio-button" onclick="startAudio()">Start Audio</button>
 </head>
-<body>
+<body onclick="startAudio()"> <!-- Add onclick event to initiate audio playback -->
     <canvas id="board"></canvas>
-    <audio id="bgAudio" autoplay loop>
+    <audio id="bgAudio" loop>
         <source src="wild_life_sound.m4a" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
